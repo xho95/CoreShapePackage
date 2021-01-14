@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "CoreShapePackage",
-            targets: ["CoreShapePackage"]),
+            targets: ["CoreShapePackage", "CoreShape"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -18,9 +18,14 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        // "537d0460864c080cbeb57686fedab6602822dc7ac95228fd0d078abd8678b5f9"
         .target(
             name: "CoreShapePackage",
             dependencies: []),
+        .binaryTarget(
+            name: "CoreShape",
+            url: "https://github.com/xho95/CoreShape/releases/download/0.0.1/CoreShape-0.0.1.xcframework.zip",
+            checksum: "537d0460864c080cbeb57686fedab6602822dc7ac95228fd0d078abd8678b5f9"),
         .testTarget(
             name: "CoreShapePackageTests",
             dependencies: ["CoreShapePackage"]),
